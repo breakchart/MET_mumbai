@@ -28,7 +28,7 @@ const App = () => {
     const playBeep = () => {
       const audio = new Audio('/beep.mp3'); 
       audio.play();
-      alert('Notification')
+   
     };
 
   const field1 = times[0]!==undefined?times[0]:'00:00'
