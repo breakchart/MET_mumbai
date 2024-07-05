@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <div className='bg-cyan-800 flex justify-between items-center h-15  mx-auto px-4 text-white'>
       {/* Logo */}
-      <h2 className=' hover:italic w-full text-3xl font-bold text-[rgb(85,255,201)]'>VELS UNIVERSITY</h2>
+      <h2 className=' hover:text-white w-full text-3xl font-bold text-[rgb(85,255,201)]'>VELS UNIVERSITY</h2>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
