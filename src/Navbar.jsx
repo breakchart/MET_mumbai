@@ -48,7 +48,7 @@ const Navbar = () => {
         }
       >
         {/* Mobile Logo */}
-        <h1 className='w-full text-3xl font-bold text-[#00df9a] m-4'>INFINITI</h1>
+        <h1 className='w-full text-3xl font-bold text-[#00df9a] m-4'>Vels University</h1>
 
         {/* Mobile Navigation Items */}
         {navItems.map(item => (
