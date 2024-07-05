@@ -75,7 +75,7 @@ const App = () => {
         </button>
 
         <div
-          className={`flex flex-row  space-y-4 ${
+          className={`flex md:flex-row flex-col space-y-4 ${
             !buttonsEnabled ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
@@ -118,8 +118,10 @@ const App = () => {
               </button>
             </div>
           </form>
-
-          <ThingsData />
+<div className="flex justify-center">
+<ThingsData />
+</div>
+         
         </div>
       </div>
       <div className="flex justify-center">
