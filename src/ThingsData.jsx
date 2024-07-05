@@ -12,7 +12,7 @@ const ThingsData = () => {
     .then(response => {
         const responseData = response.data.feeds;
         const nonNullObjects = responseData.filter(item => 
-          Object.values(item).every(value => value !== null)
+          Object.values(item).every(value => value !== null )
         );
         setThingsdata(responseData);
         setFilteredData(nonNullObjects);
