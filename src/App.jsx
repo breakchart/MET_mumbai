@@ -3,6 +3,7 @@ import axios from "axios";
 import ThingsData from "./ThingsData";
 import Navbar from "./Navbar";
 
+
 const App = () => {
   const [buttonsEnabled, setButtonsEnabled] = useState(false);
   const [notification, setNotification] = useState("");
@@ -22,6 +23,13 @@ const App = () => {
     newTimes[index] = event.target.value;
     setTimes(newTimes);
   };
+
+ 
+    const playBeep = () => {
+      const audio = new Audio('/beep.mp3'); 
+      audio.play();
+      alert('Notification')
+    };
 
   const field1 = times[0]!==undefined?times[0]:'00:00'
   const field2 = times[1]!==undefined?times[1]:'00:00'
@@ -114,6 +122,10 @@ const App = () => {
           <ThingsData />
         </div>
       </div>
+      <div className="flex justify-center">
+      <h2>Beep Notification Example</h2>
+      <button onClick={playBeep} className=" font-bold py-2 px-6  bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform ">Play Beep</button>
+    </div>
     </div>
   );
 };
