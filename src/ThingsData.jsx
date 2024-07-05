@@ -22,11 +22,11 @@ const ThingsData = () => {
       },[])
   return (
     <div>      {thingsdata && (
-        <div className="mt-4 p-4 bg-yellow-100 text-yellow-300 rounded-md">
+        <div className=" p-2 bg-yellow-100 text-yellow-300 rounded-md">
     <table >
-          {thingsdata.slice(-5).reverse().map((data)=>(
-          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"  key={data.entry_id}>
-                  <td className="px-6 py-4">{data.entry_id}</td>
+          {thingsdata.slice(-1).reverse().map((data)=>(
+          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 flex flex-col"  key={data.entry_id}>
+                 
             <td className="px-6 py-4">{data.field1}</td>
             <td className="px-6 py-4">{data.field2}</td>
             <td className="px-6 py-4"> {data.field3}</td>
