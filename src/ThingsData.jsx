@@ -1,54 +1,79 @@
-import React,{useState,useEffect} from 'react'
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const ThingsData = () => {
-    const [thingsdata, setThingsdata] = useState([]);
-    const [filterData, setFilteredData] = useState([]);
-    const url2='https://api.thingspeak.com/channels/2589884/feeds.json'
+  const [thingsdata, setThingsdata] = useState([]);
+  const [filterData, setFilteredData] = useState([]);
+  const url2 = "https://api.thingspeak.com/channels/2589884/feeds.json";
 
-  
-    const handlegetClick = async () => {
-    await axios.get(url2)
-    .then(response => {
+  const handlegetClick = async () => {
+    await axios
+      .get(url2)
+      .then((response) => {
         const responseData = response.data.feeds;
-        const nonNullObjects = responseData.filter(item => 
-          Object.values(item).every(value => value !== null )
+        const last2Value = responseData.map((item) => {
+          const values = Object.entries(item);
+          const removeEntries = values.slice(0, -2);
+          return Object.fromEntries(removeEntries);
+        });
+        const nonNullObjects = last2Value.filter((item) =>
+          Object.values(item).every((value) => value !== null)
         );
         setThingsdata(responseData);
         setFilteredData(nonNullObjects);
       })
-      .catch(error => {
-        console.error('Error fetching data:', error);
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
-    };
+  };
 
-    useEffect(()=>{
-      const intervalId = setInterval(() => {
-          handlegetClick()
-        }, 1000) 
-        return () => clearInterval(intervalId)
-      
-    },[])
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handlegetClick();
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
-    <div>      {filterData && (
-        <div className=" p-2 bg-yellow-100 text-yellow-300 rounded-md">
-    <table >
-          {filterData.slice(-1).reverse().map((data)=>(
-          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 flex flex-col"  key={data.entry_id}>
-                 
-            <td className="px-6 py-4">{data.field1}</td>
-            <td className="px-6 py-4">{data.field2}</td>
-            <td className="px-6 py-4"> {data.field3}</td>
-            <td className="px-6 py-4" >{data.field4}</td>
-            <td className="px-6 py-4" >{data.field5}</td>
-            <td className="px-6 py-4">{data.field6}</td>
+    <div>
+   
+      {filterData && (
+        <div className="align-middle overflow-x-auto shadow-md sm:rounded-lg ">
+          <table className="w-full text-lg text-center rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="text-lg text-black uppercase bg-gray-50 dark:bg-green-700 dark:text-gray-100">
+            <tr className="  ">
+           
+                <th>mbf</th>
+    <th>maf</th>
+    <th>abf</th>
+    <th>Aaf</th>
+    <th>nbf</th>
+    <th>naf</th>
             </tr>
-          ))}
-      </table>
+            </thead>
+            <tbody>
+            {filterData
+              .slice(-1)
+              .reverse()
+              .map((data) => (
+                <tr
+                  className="  "
+                  key={data.entry_id}
+                >
+                  <td className="px-2 py-2">{data.field1}</td>
+                  <td className="px-2 py-2">{data.field2}</td>
+                  <td className="px-2 py-2"> {data.field3}</td>
+                  <td className="px-2 py-2">{data.field4}</td>
+                  <td className="px-2 py-2">{data.field5}</td>
+                  <td className="px-2 py-2">{data.field6}</td>
+                </tr>
+              ))}
+              </tbody>
+          </table>
         </div>
-      )}</div>
-  )
-}
+      )}
+    </div>
+  );
+};
 
-export default ThingsData
+export default ThingsData;
