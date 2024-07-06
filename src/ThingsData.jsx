@@ -39,8 +39,8 @@ const ThingsData = () => {
    
       {filterData && (
         <div className="align-middle overflow-x-auto shadow-md sm:rounded-lg ">
-          <table className="w-full text-lg text-center rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-lg text-black uppercase bg-gray-50 dark:bg-green-700 dark:text-gray-100">
+          <table className="w-full text-lg text-center rtl:text-right text-gray-700 ">
+          <thead className="text-lg  uppercase  bg-green-700 text-gray-100">
             <tr className="  ">
            
                 <th>mbf</th>
