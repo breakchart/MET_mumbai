@@ -103,7 +103,7 @@ console.log(filltab)
     <div className="bg-blue-100 min-h-screen">
       <Navbar />
       <FillTab fillTabData={handleTabData}/>
-      <div className="p-5 mt-5 flex md:flex-row flex-col gap-5 items-center justify-center ">
+      <div className=" mt-5 flex md:flex-row flex-col gap-5 items-center justify-center ">
         <button
           className="font-bold py-2 px-6  bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform  "
           onClick={handleInitialButtonClick}
@@ -112,18 +112,18 @@ console.log(filltab)
         </button>
 
         <div
-          className={`flex md:flex-row flex-col space-y-4 ${
+          className={`flex md:flex-row flex-col space-y-4  ${
             filltab>0 ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
           <form
             onSubmit={handleSubmit}
-            className={`px-6 mx-2 py-4 bg-green-500  rounded-md `}
+            className={`px-2 my-3 py-4  bg-green-500  rounded-md `}
           >
             {timesName.map((time, index) => (
               <tr
                 key={index}
-                className="mb-4 gap-4 flex flex-row justify-between "
+                className="mb-1 gap-4 flex flex-row justify-between "
               >
                 <td>
                   <label
