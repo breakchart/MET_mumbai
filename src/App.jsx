@@ -41,7 +41,7 @@ const App = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const url = `https://api.thingspeak.com/update?api_key=ZFKEAFACA0YTHBPT&field1=${field1}&field2=${field2}&field3=${field3}&field4=${field4}&field5=${field5}&field6=${field6}`;
+    const url = `https://api.thingspeak.com/update?api_key=J22I0V6UUKDF8EYU&field1=${field1}&field2=${field2}&field3=${field3}&field4=${field4}&field5=${field5}&field6=${field6}`;
     try {
       const response = await axios.get(url);
 

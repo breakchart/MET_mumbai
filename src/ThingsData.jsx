@@ -4,7 +4,7 @@ import axios from "axios";
 const ThingsData = () => {
   const [thingsdata, setThingsdata] = useState([]);
   const [filterData, setFilteredData] = useState([]);
-  const url2 = "https://api.thingspeak.com/channels/2589884/feeds.json";
+  const url2 = "https://api.thingspeak.com/channels/2593001/feeds.json";
 
   const handlegetClick = async () => {
     await axios
