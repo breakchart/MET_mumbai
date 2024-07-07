@@ -16,20 +16,19 @@ const App = () => {
     "Night After Food",
   ]);
   const [times, setTimes] = useState([]);
-  const [sixdata,setSixdata]=useState([])
-  const [sixfield] = sixdata.slice(-1)
 
-const sixtime1=sixfield?.field1
-const sixtime2=sixfield?.field2
-const sixtime3=sixfield?.field3
-const sixtime4=sixfield?.field4
-const sixtime5=sixfield?.field5
-const sixtime6=sixfield?.field6
+  const [sixdata,setSixdata]=useState([])
+  const sixfield = sixdata.slice(-1)
+const sixtime1=sixfield[0].field1
+const sixtime2=sixfield[0].field2
+const sixtime3=sixfield[0].field3
+const sixtime4=sixfield[0].field4
+const sixtime5=sixfield[0].field5
+const sixtime6=sixfield[0].field6
 
   const handleSixdata=(sixdata)=>{
 setSixdata(sixdata)
   }
-
   const handleTimeChange = (index, event) => {
     event.preventDefault();
     const newTimes = [...times];
@@ -54,7 +53,7 @@ setSixdata(sixdata)
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const url = `https://api.thingspeak.com/update?api_key=J22I0V6UUKDF8EYU&field1=${field1}&field2=${field2}&field3=${field3}&field4=${field4}&field5=${field5}&field6=${field6}&field7=0&field8=0`;
+    const url = `https://api.thingspeak.com/update?api_key=J22I0V6UUKDF8EYU&field1=${field1}&field2=${field2}&field3=${field3}&field4=${field4}&field5=${field5}&field6=${field6}`;
     try {
       const response = await axios.get(url);
 
@@ -74,7 +73,8 @@ setSixdata(sixdata)
 
   const handleInitialButtonClick = async() => {
     setButtonsEnabled(true);
-    
+ 
+
     const url = `https://api.thingspeak.com/update?api_key=J22I0V6UUKDF8EYU&field1=${sixtime1}&field2=${sixtime2}&field3=${sixtime3}&field4=${sixtime4}&field5=${sixtime5}&field6=${sixtime6}&field7=0&field8=1`;
     try {
       const response = await axios.get(url);

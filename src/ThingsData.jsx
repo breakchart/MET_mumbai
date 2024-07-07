@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const ThingsData = () => {
+const ThingsData = ({onData}) => {
   const [thingsdata, setThingsdata] = useState([]);
   const [filterData, setFilteredData] = useState([]);
+
+  onData(filterData)
   const url2 = "https://api.thingspeak.com/channels/2593001/feeds.json";
 
   const handlegetClick = async () => {
@@ -14,6 +16,7 @@ const ThingsData = () => {
         const last2Value = responseData.map((item) => {
           const values = Object.entries(item);
           const removeEntries = values.slice(0, -2);
+     
           return Object.fromEntries(removeEntries);
         });
         const nonNullObjects = last2Value.filter((item) =>
@@ -30,6 +33,7 @@ const ThingsData = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       handlegetClick();
+  
     }, 1000);
     return () => clearInterval(intervalId);
   }, []);
