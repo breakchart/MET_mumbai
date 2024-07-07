@@ -98,7 +98,7 @@ const handleTabData=(fieldFillTab)=>{
 setFilltab(fieldFillTab)
 }
 
-
+console.log(filltab)
   return (
     <div className="bg-blue-100 min-h-screen">
       <Navbar />
@@ -113,7 +113,7 @@ setFilltab(fieldFillTab)
 
         <div
           className={`flex md:flex-row flex-col space-y-4  ${
-            filltab>0 ? "opacity-70 cursor-not-allowed" : ""
+            filltab>0 ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
           <form
