@@ -75,7 +75,7 @@ setSixdata(sixdata)
   const handleInitialButtonClick = async() => {
     setButtonsEnabled(true);
     
-    const url = `https://api.thingspeak.com/update?api_key=J22I0V6UUKDF8EYU&field1=${sixtime1}&field2=${sixtime2}&field3=${sixtime3}&field4=${sixtime4}&field5=${sixtime5}&field6=${sixtime6}&field7=0&field8=1`;
+    const url = `https://api.thingspeak.com/update?api_key=J22I0V6UUKDF8EYU&field1=${sixtime1}&field2=${sixtime2}&field3=${sixtime3}&field4=${sixtime4}&field5=${sixtime5}&field6=${sixtime6}&field7=1&field8=0`;
     try {
       const response = await axios.get(url);
 
