@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ThingsData from "./ThingsData";
 import Navbar from "./Navbar";
+import FillTab from "./FillTab";
 
 
 const App = () => {
+  const[filltab,setFilltab]=useState(0)
   const [buttonsEnabled, setButtonsEnabled] = useState(false);
   const [notification, setNotification] = useState("");
   const [timesName, setTimesName] = useState([
@@ -73,7 +75,7 @@ setSixdata(sixdata)
   };
 
   const handleInitialButtonClick = async() => {
-    setButtonsEnabled(true);
+  
     
     const url = `https://api.thingspeak.com/update?api_key=J22I0V6UUKDF8EYU&field1=${sixtime1}&field2=${sixtime2}&field3=${sixtime3}&field4=${sixtime4}&field5=${sixtime5}&field6=${sixtime6}&field7=1&field8=0`;
     try {
@@ -92,13 +94,18 @@ setSixdata(sixdata)
       console.error("Error sending data:", error);
     }
   };
+const handleTabData=(fieldFillTab)=>{
+setFilltab(fieldFillTab)
+}
 
+console.log(filltab)
   return (
     <div className="bg-blue-100 min-h-screen">
       <Navbar />
+      <FillTab fillTabData={handleTabData}/>
       <div className="p-5 mt-5 flex md:flex-row flex-col gap-5 items-center justify-center ">
         <button
-          className="px-4 py-2 mb-4 bg-blue-500 text-white rounded-md"
+          className="font-bold py-2 px-6  bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform  "
           onClick={handleInitialButtonClick}
         >
           Fill Tablets
@@ -106,7 +113,7 @@ setSixdata(sixdata)
 
         <div
           className={`flex md:flex-row flex-col space-y-4 ${
-            !buttonsEnabled ? "opacity-50 cursor-not-allowed" : ""
+            filltab>0 ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
           <form
@@ -138,7 +145,7 @@ setSixdata(sixdata)
               </tr>
             ))}
             <div
-              className={`flex justify-center ${!buttonsEnabled ? "hidden" : ""}`}
+              className={`flex justify-center ${filltab===0 ? "hidden" : ""}`}
             >
               <button
                 className="  font-bold py-2 px-6  bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform  "
