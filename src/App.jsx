@@ -3,12 +3,12 @@ import axios from "axios";
 import ThingsData from "./ThingsData";
 import Navbar from "./Navbar";
 import FillTab from "./FillTab";
+import Notification from "./Notification";
 
 
 const App = () => {
   const[filltab,setFilltab]=useState(0)
   const [buttonsEnabled, setButtonsEnabled] = useState(false);
-  const [notification, setNotification] = useState("");
   const [timesName, setTimesName] = useState([
     "Morning Before Food",
     "Morning After Food",
@@ -40,11 +40,7 @@ setSixdata(sixdata)
   };
 
  
-    const playBeep = () => {
-      const audio = new Audio('/beep.mp3'); 
-      audio.play();
-   
-    };
+
 
   const field1 = times[0]!==undefined?times[0]:'00:00'
   const field2 = times[1]!==undefined?times[1]:'00:00'
@@ -98,11 +94,15 @@ const handleTabData=(fieldFillTab)=>{
 setFilltab(fieldFillTab)
 }
 
-console.log(filltab)
+
   return (
     <div className="bg-blue-100 min-h-screen">
       <Navbar />
       <FillTab fillTabData={handleTabData}/>
+      <div className="m-2 flex justify-center">
+      <Notification/>
+      </div>
+     
       <div className=" mt-5 flex md:flex-row flex-col gap-5 items-center justify-center ">
         <button
           className="font-bold py-2 px-6  bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform  "
@@ -161,10 +161,7 @@ console.log(filltab)
          
         </div>
       </div>
-      <div className="flex justify-center">
-      <h2>Beep Notification Example</h2>
-      <button onClick={playBeep} className=" font-bold py-2 px-6  bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform ">Play Beep</button>
-    </div>
+
     </div>
   );
 };
