@@ -33,6 +33,7 @@ const notificationData=notification?.field8
   }, []);
   const playBeep = () => {
     const audio = new Audio('/beep.mp3'); 
+    console.log(audio)
     audio.play();
  
   };
@@ -43,21 +44,32 @@ const notificationData=notification?.field8
           case '1':
             toast.success('Take Morning Before Food');
             playBeep()
+           
             break;
           case '2':
+            playBeep()
             toast.success('Take Morning After Food');
+            
             break;
           case '3':
+            playBeep()
             toast.success('Take Afternoon Before Food');
+           
             break;
           case '4':
+            playBeep()
             toast.success('Take Afternoon After Food');
+            
             break;
           case '5':
+            playBeep()
             toast.success('Take Night Before Food');
+            
             break;
           case '6':
+            playBeep()
             toast.success('Take Night After Food');
+           
             break;
           default:
           
@@ -68,7 +80,7 @@ const notificationData=notification?.field8
       useEffect(()=>{
         const intervalId = setInterval(() => {
           handleCommand (notificationData)
-          console.log("notify")
+     
       
         }, 7000);
         return () => clearInterval(intervalId);
