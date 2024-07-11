@@ -42,33 +42,45 @@ const notificationData=notification?.field8
 
         switch (notificationData) {
           case '1':
-            toast.success('Take Morning Before Food');
+            toast.success('Take Morning Before Food', {
+              position: "bottom-center"
+            });
             playBeep()
            
             break;
           case '2':
             playBeep()
-            toast.success('Take Morning After Food');
+            toast.success('Take Morning After Food', {
+              position: "bottom-center"
+            });
             
             break;
           case '3':
             playBeep()
-            toast.success('Take Afternoon Before Food');
+            toast.success('Take Afternoon Before Food', {
+              position: "bottom-center"
+            });
            
             break;
           case '4':
             playBeep()
-            toast.success('Take Afternoon After Food');
+            toast.success('Take Afternoon After Food', {
+              position: "bottom-center"
+            });
             
             break;
           case '5':
             playBeep()
-            toast.success('Take Night Before Food');
+            toast.success('Take Night Before Food', {
+              position: "bottom-center"
+            });
             
             break;
           case '6':
             playBeep()
-            toast.success('Take Night After Food');
+            toast.success('Take Night After Food', {
+              position: "bottom-center"
+            });
            
             break;
           default:
