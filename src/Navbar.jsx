@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className='bg-cyan-800  items-center  mx-auto px-4 text-white'>
       {/* Logo */}
-      <h2 className='flex justify-center hover:text-white w-full p-3 text-3xl font-bold text-[rgb(85,255,201)]'>VELS UNIVERSITY</h2>
+      <h2 className='flex justify-center hover:text-white w-full p-3 text-3xl font-bold text-[rgb(85,255,201)]'>MET- Mumbai</h2>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
